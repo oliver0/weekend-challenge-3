@@ -3,12 +3,15 @@ var app = express();
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
+var operations = require('./routes/operations');
 
 app.use(bodyParser.urlencoded({extended: true}));
 
-
+app.use('/operations', operations);
 // Static Files
-app.use('/', index)
+app.use('/', index);
+
+
 
 app.set('port', process.env.PORT || 3000);
 
