@@ -1,22 +1,18 @@
 var express = require('express');
 var router = express.Router();
 
-var numberObject;
 var result = {};
 
 router.get('/', function(req, res){
-  console.log('get success');
-
   res.send(result);
 });
 
 router.post('/', function(req, res){
-  numberObject = req.body;
-  var x = parseFloat(numberObject.x);
-  var y = parseFloat(numberObject.y);
+  var {x, y, type} = req.body;
+  x = parseFloat(x);
+  y = parseFloat(y);
 
-  console.log(typeof numberObject.x)
-  switch(numberObject.type){
+  switch(type){
     case 'Add':
       result['result'] = x + y;
       break;
@@ -34,9 +30,5 @@ router.post('/', function(req, res){
   }
   res.sendStatus(201);
 });
-
-
-
-
 
 module.exports = router;
