@@ -9,11 +9,7 @@ $(document).ready(function(){
   $(".math").on("click", function(){
     $('#result').empty();
     var buttonText = $(this).text();
-    var numberObject = {x:$('#first').val(), y: $('#second').val(), type: buttonText};
-    console.log(numberObject);
-    // numberObject['x']= $('#first').val();
-    // numberObject['y']= $('#second').val();
-    // numberObject['type']= buttonText;
+    var numberObject = {x:$('#first').val(), y: $('#second').val(), type: buttonText};  
 
     $.ajax({
       type: 'POST',
