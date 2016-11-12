@@ -30,7 +30,7 @@ router.post('/', function(req, res){
       result['result'] = x / y;
       break;
     default:
-      result['result'] = -1;
+      result['result'] = 0;
   }
   res.sendStatus(201);
 });

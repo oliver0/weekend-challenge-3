@@ -1,13 +1,17 @@
 $(document).ready(function(){
 
+  $('#clear').on('click', function(){
+    $('#numberForm').find('input[type=number]').val('');
+    $('#result').empty();
+  });
+
   // listener for click on one of the mathematical operation buttons
-  $("button").on("click", function(){
+  $(".math").on("click", function(){
     $('#result').empty();
     var buttonText = $(this).text();
     var numberObject = {};
     numberObject['x']= $('#first').val();
     numberObject['y']= $('#second').val();
-    console.log(typeof numberObject.x)
     numberObject['type']= buttonText;
 
     $.ajax({
@@ -19,6 +23,7 @@ $(document).ready(function(){
       }
     });
   });
+
   function postNumbers(){
     event.preventDefault();
     var numberObject = {};
