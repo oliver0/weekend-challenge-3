@@ -13,16 +13,16 @@ router.post('/', function(req, res){
   y = parseFloat(y);
 
   switch(type){
-    case 'Add':
+    case 'add':
       result['result'] = x + y;
       break;
-    case 'Subtract':
+    case 'subtract':
       result['result'] = x - y;
       break;
-    case 'Multiply':
+    case 'multiply':
       result['result'] = x * y;
       break;
-    case 'Divide':
+    case 'divide':
       result['result'] = x / y;
       break;
     default:
