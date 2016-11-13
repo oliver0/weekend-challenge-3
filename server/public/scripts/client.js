@@ -51,10 +51,10 @@ $(document).ready(function(){
 
   $('#equals').on('click', function(){
     numberObject.y = y;
-    //console.log(numberObject);
+    var fileName = '/' + numberObject.type;
     $.ajax({
       type: 'POST',
-      url: '/operations',
+      url: fileName,
       data: numberObject,
       success: function(data){
         getResult();
@@ -68,9 +68,10 @@ $(document).ready(function(){
     }
 
   function getResult(){
+    var fileName = '/' + numberObject.type;
     $.ajax({
       type: 'GET',
-      url: '/operations',
+      url: fileName,
       success: function(data){
         $('#view').text(data.result);
       }
