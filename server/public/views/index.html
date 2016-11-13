@@ -12,7 +12,7 @@
   </head>
   <body>
     <h1>Calculator</h1>
-    <form id="numberForm">
+    <!--<form id="numberForm">
       <input id="first" type="number"></input>
       <input id="second" type="number"></input>
     </form>
@@ -21,17 +21,18 @@
     <button class="math" type="submit">Multiply</button>
     <button class="math" type="submit">Divide</button>
     <div id="result"></div>
-    <button id="clear">Clear</button>
+    <button id="clear">Clear</button>-->
 
-    <div class="container">
+
+    <div class="container-fluid">
       <div class="row">
-        <div class="jumbotron">
-          0
+        <div id="view">
+          1
         </div>
       </div>
       <div class="row">
         <div class="col-md-3">
-          <button class="btn" id="one">AC</button>
+          <button class="btn" id="clear">AC</button>
         </div>
         <div class="col-md-3">
           <button class="btn" id="two">+/-</button>
@@ -97,7 +98,9 @@
         <div class="col-md-3">
           <button class="btn operations" id="three">=</button>
         </div>
+      </div>
     </div>
+
 
   </body>
 </html>

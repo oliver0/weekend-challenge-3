@@ -1,15 +1,14 @@
 $(document).ready(function(){
 
   $('#clear').on('click', function(){
-    $('#numberForm').find('input[type=number]').val('');
-    $('#result').empty();
+    $('#view').text('0');
   });
 
   // listener for click on one of the mathematical operation buttons
   $(".math").on("click", function(){
     $('#result').empty();
     var buttonText = $(this).text();
-    var numberObject = {x:$('#first').val(), y: $('#second').val(), type: buttonText};  
+    var numberObject = {x:$('#first').val(), y: $('#second').val(), type: buttonText};
 
     $.ajax({
       type: 'POST',
