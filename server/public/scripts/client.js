@@ -1,12 +1,17 @@
 $(document).ready(function(){
 
-  var x = "";
-  var y = "";
+  var x = '';
+  var y = '';
   var numberObject = {};
   var operationClicked = false;
 
   $('#clear').on('click', function(){
     $('#view').text('0');
+    x = ''
+    y = '';
+    numberObject = {};
+    operationClicked = false;
+    console.log(x);
   });
 
   // listener for click on one of the mathematical operation buttons
@@ -28,28 +33,33 @@ $(document).ready(function(){
   $('.number').on('click', function(){
     if(!operationClicked){
       x += $(this).text();
+      $('#view').text(x);
     } else {
       y += $(this).text();
-      console.log(y)
+      $('#view').text(y);
     }
-
-    console.log(x);
   });
 
   $('.operations').on('click', function(){
     if (!operationClicked) {
-      numberObject['x'] = x;
-      numberObject['type'] = $(this).attr('id');
+      numberObject.x = x;
+      numberObject.type = $(this).attr('id');
       operationClicked = true;
+
     }
+  });
 
-
-
-    console.log(numberObject);
-    console.log($(this).attr('id'));
-
-    // numberObject[first] = first;
-    // numberObject[type] =
+  $('#equals').on('click', function(){
+    numberObject.y = y;
+    //console.log(numberObject);
+    $.ajax({
+      type: 'POST',
+      url: '/operations',
+      data: numberObject,
+      success: function(data){
+        getResult();
+      }
+    });
   });
 
   function postNumbers(){
@@ -62,7 +72,7 @@ $(document).ready(function(){
       type: 'GET',
       url: '/operations',
       success: function(data){
-        $('#result').append(data.result);
+        $('#view').text(data.result);
       }
     });
   }
