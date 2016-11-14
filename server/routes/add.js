@@ -8,7 +8,6 @@ router.get('/', function(req, res){
 });
 
 router.post('/', function(req, res){
-  //var {x, y, type} = req.body;
   x = parseFloat(req.body.x);
   y = parseFloat(req.body.y);
 
