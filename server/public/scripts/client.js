@@ -30,13 +30,25 @@ $(document).ready(function(){
       $('#view').text(currentNumber.substring(1,20));
     } else{
       $('#view').text('-' + currentNumber);
+
     }
 
-    if(!operationClicked){
-       x = '-' + x;     
-    }  else{
+    if(operationClicked){
+      if(negativeVisible){
+        y = y.substring(1,20);
+      } else {
         y = '-' + y;
+      }
+
+    }  else{
+          if(negativeVisible){
+            x = x.substring(1,20);
+          } else{
+            x = '-' + x;
+          }
+
     }
+    negativeVisible = !negativeVisible;
   });
 
   $('.number').on('click', function(){
