@@ -4,6 +4,7 @@ $(document).ready(function(){
   var y = '';
   var numberObject = {};
   var operationClicked = false;
+  var negativeVisible = false;
 
   $('#clear').on('click', function(){
     $('#view').text('0');
@@ -24,9 +25,15 @@ $(document).ready(function(){
 
   $('#negative').on('click', function(){
     var currentNumber = $('#view').text();
-    $('#view').text('-' + currentNumber);
+
+    if(negativeVisible){
+      $('#view').text(currentNumber.substring(1,20));
+    } else{
+      $('#view').text('-' + currentNumber);
+    }
+
     if(!operationClicked){
-       x = '-' + x;
+       x = '-' + x;     
     }  else{
         y = '-' + y;
     }
