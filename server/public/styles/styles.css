@@ -7,7 +7,7 @@
 }
 
 #view{
-  padding: 5px 15px 5px 0;
+  padding: 10px 15px 5px 0;
   margin: 0;
   height: 80px;
   background-color: #444444;
@@ -36,7 +36,7 @@
   background-color: #eeeeee;
 }
 
-.number:hover, .extraOperations:hover{
+.number:hover, .extraOperations:hover, #decimal:hover{
   color: #eeeeee;
   background-color: #888888;
 }
