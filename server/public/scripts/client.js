@@ -28,11 +28,15 @@ $(document).ready(function(){
   $('#decimal').on('click', function(){
     if(!decimalVisible){
       if(operationClicked){
-        y += '.';
-        $('#view').text(y);
+        if(y.includes('.')==false){
+          y += '.';
+          $('#view').text(y);
+        }
       } else {
+          if(x.includes('.')==false){
         x += '.';
         $('#view').text(x);
+      }
       }
     }
   });
