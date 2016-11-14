@@ -5,6 +5,7 @@ $(document).ready(function(){
   var numberObject = {};
   var operationClicked = false;
   var negativeVisible = false;
+  var decimalVisible = false;
 
   $('#clear').on('click', function(){
     $('#view').text('0');
@@ -46,9 +47,20 @@ $(document).ready(function(){
           } else{
             x = '-' + x;
           }
-
-    }
+        }
     negativeVisible = !negativeVisible;
+  });
+
+  $('#decimal').on('click', function(){
+    if(!decimalVisible){
+      if(operationClicked){
+        y += '.';
+        $('#view').text(y);
+      } else {
+        x += '.';
+        $('#view').text(x);
+      }
+    }
   });
 
   $('.number').on('click', function(){
