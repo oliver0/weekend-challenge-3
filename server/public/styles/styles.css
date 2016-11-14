@@ -1,10 +1,6 @@
 
 
-#mainContainer{
-  width: 325px;
-  height: 600px;
-  margin: 100px auto;
-}
+
 
 #view{
   padding: 10px 15px 5px 0;
@@ -21,8 +17,9 @@
 
 .container {
   width: 100%;
-  max-width: 500px;
+  max-width: 350px;
   padding:0;
+  margin: 100px auto;
 }
 .row {
 
