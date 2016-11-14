@@ -48,11 +48,11 @@
 }
 
 .operations{
-  background-color: orange;
+  background-color: purple;
   color: white;
 }
 
 .operations:hover{
   color: white;
-  background-color: #e68a00;
+  background-color: magenta;
 }

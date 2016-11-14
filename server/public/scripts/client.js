@@ -12,44 +12,14 @@ $(document).ready(function(){
     clearView();
   });
 
-  function clearView(){
-    x = '';
-    y = '';
-    numberObject = {};
-    operationClicked = false;
-  }
+
 
   $('#percent').on('click', function(){
     var percent = $('#view').text() / 100;
     $('#view').text(percent);
   });
 
-  $('#negative').on('click', function(){
-    var currentNumber = $('#view').text();
-
-    if(negativeVisible){
-      $('#view').text(currentNumber.substring(1,20));
-    } else{
-      $('#view').text('-' + currentNumber);
-
-    }
-
-    if(operationClicked){
-      if(negativeVisible){
-        y = y.substring(1,20);
-      } else {
-        y = '-' + y;
-      }
-
-    }  else{
-          if(negativeVisible){
-            x = x.substring(1,20);
-          } else{
-            x = '-' + x;
-          }
-        }
-    negativeVisible = !negativeVisible;
-  });
+  $('#negative').on('click', makeNegativeOrPositive);
 
   $('#decimal').on('click', function(){
     if(!decimalVisible){
@@ -78,7 +48,6 @@ $(document).ready(function(){
       numberObject.x = x;
       numberObject.type = $(this).attr('id');
       operationClicked = true;
-
     }
   });
 
@@ -96,10 +65,35 @@ $(document).ready(function(){
     });
   });
 
-  function postNumbers(){
-    event.preventDefault();
-    var numberObject = {};
+  function makeNegativeOrPositive(){
+    var currentNumber = $('#view').text();
+    if(negativeVisible){
+      $('#view').text(currentNumber.substring(1,20));
+    } else{
+      $('#view').text('-' + currentNumber);
     }
+    if(operationClicked){
+      if(negativeVisible){
+        y = y.substring(1,20);
+      } else {
+        y = '-' + y;
+      }
+    }  else{
+          if(negativeVisible){
+            x = x.substring(1,20);
+          } else{
+            x = '-' + x;
+          }
+        }
+    negativeVisible = !negativeVisible;
+  }
+
+  function clearView(){
+    x = '';
+    y = '';
+    numberObject = {};
+    operationClicked = false;
+  }
 
   function getResult(){
     var fileName = '/' + numberObject.type;
