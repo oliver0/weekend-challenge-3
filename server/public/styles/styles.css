@@ -9,10 +9,10 @@
 #view{
   padding: 10px 15px 5px 0;
   margin: 0;
-  height: 80px;
+  height: 100px;
   background-color: #444444;
   text-align: right;
-  font-size: 45px;
+  font-size: 55px;
   color: white;
   font-family: Arial;
 }
@@ -34,6 +34,7 @@
   border: none;
   border: 1px solid #999999;
   background-color: #eeeeee;
+  font-size: 25px;
 }
 
 .number:hover, .extraOperations:hover, #decimal:hover{
@@ -50,6 +51,7 @@
 .operations{
   background-color: purple;
   color: white;
+  font-size: 25px;
 }
 
 .operations:hover{
