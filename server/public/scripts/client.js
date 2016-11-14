@@ -7,28 +7,30 @@ $(document).ready(function(){
 
   $('#clear').on('click', function(){
     $('#view').text('0');
-    x = ''
+    clearView();
+  });
+
+  function clearView(){
+    x = '';
     y = '';
     numberObject = {};
     operationClicked = false;
-    console.log(x);
+  }
+
+  $('#percent').on('click', function(){
+    var percent = $('#view').text() / 100;
+    $('#view').text(percent);
   });
 
-  // listener for click on one of the mathematical operation buttons
-  /*$(".math").on("click", function(){
-    $('#result').empty();
-    var buttonText = $(this).text();
-    var numberObject = {x:$('#first').val(), y: $('#second').val(), type: buttonText};
-
-    $.ajax({
-      type: 'POST',
-      url: '/operations',
-      data: numberObject,
-      success: function(data){
-        getResult();
-      }
-    });
-  });*/
+  $('#negative').on('click', function(){
+    var currentNumber = $('#view').text();
+    $('#view').text('-' + currentNumber);
+    if(!operationClicked){
+       x = '-' + x;
+    }  else{
+        y = '-' + y;
+    }
+  });
 
   $('.number').on('click', function(){
     if(!operationClicked){
@@ -58,6 +60,7 @@ $(document).ready(function(){
       data: numberObject,
       success: function(data){
         getResult();
+        clearView();
       }
     });
   });
